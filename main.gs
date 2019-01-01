@@ -5,21 +5,29 @@ function doPost(e){
     "method": "post",
     "payload": payload
   }
-  UrlFetchApp.fetch("https://api.telegram.org/botYOUR-API-HERE/", data);
+  /* 這段會用可以解開註解
+  var d = new Date();
+  var SpreadSheet = SpreadsheetApp.openById("1n6iAtxDLhT_ILzpez6vQ4U0l8w9IRXrUAYS6ZPOgaMM");
+  var Sheet = SpreadSheet.getSheetByName("紀錄收到的訊息");
+  var LastRow = Sheet.getLastRow();
+  Sheet.getRange(LastRow+1, 1).setValue(d);  
+  Sheet.getRange(LastRow+1, 2).setValue(estringa);
+  //*/
+  UrlFetchApp.fetch("https://api.telegram.org/bot307523974:AAEL6zPfp-nFsQPYHf3-X1J8xKtGZCBg4C4/", data);
 }
 
 function identificar(e){
   if (e.message.text){
     var mensaje = {
       "method": "sendMessage",
-      "chat_id": e.message.chat.id,
+      "chat_id": String(e.message.chat.id),
       "text": e.message.text,
     } 
   }
   else if (e.message.sticker){
     var mensaje = {
       "method": "sendSticker",
-      "chat_id": e.message.chat.id,
+      "chat_id": String(e.message.chat.id),
       "sticker": e.message.sticker.file_id
     }
    }
@@ -28,16 +36,17 @@ function identificar(e){
     var text = array[1];
     var mensaje = {
       "method": "sendPhoto",
-      "chat_id": e.message.chat.id,
+      "chat_id": String(e.message.chat.id),
       "photo": text.file_id
     }
    }
     else {
     var mensaje = {
       "method": "sendMessage",
-      "chat_id": e.message.chat.id,
+      "chat_id": String(e.message.chat.id),
       "text": "Try other stuff"
     }
    }
+  console.log(String(e.message.chat.id))
   return mensaje
 }
