@@ -9,3 +9,4 @@ You will need to create your bot with Botfather in Telegram, take the API key an
 
 Oh and remember to create a webhook first in Telegram with the URL of your Google Script.
 
+# 修正過超集群組失效的問題
