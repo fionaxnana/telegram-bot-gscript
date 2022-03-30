@@ -13,7 +13,7 @@ function doPost(e){
   Sheet.getRange(LastRow+1, 1).setValue(d);  
   Sheet.getRange(LastRow+1, 2).setValue(estringa);
   //*/
-  UrlFetchApp.fetch("https://api.telegram.org/bot307523974:AAEL6zPfp-nFsQPYHf3-X1J8xKtGZCBg4C4/", data);
+  UrlFetchApp.fetch("https://api.telegram.org/bot5221528405:AAFxsPCVXWX8JnAAiry0vyb4tS73VYbxq40/", data);
 }
 
 function identificar(e){
